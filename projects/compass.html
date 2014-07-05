@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Wall Suite Political Compass</title>
-        <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+        <!--<link rel="stylesheet" type="text/css" href="../css/common.css"/>-->
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         <script type="text/javascript">
             google.load("visualization", "1", {packages:["corechart"]});
@@ -29,7 +29,8 @@
                     legend: 'none',
                     width: 700,
                     height: 700,
-                    backgroundColor: "transparent"
+                    backgroundColor: "transparent",
+                    colors: ['#e0440e']
                 };
 
                 var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
@@ -38,7 +39,7 @@
         </script>
     </head>
     <body>
-        <div id="container" class="center">
+        <div id="container" class="center" style="margin: 0 auto; width: 700; height: 100%; text-align: center;">
             <div id="chart_div"></div>
             Take the quiz: <a href="http://politicalcompass.org/test">Political Compass</a>
         </div>
