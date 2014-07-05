@@ -3,7 +3,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #E1E6FA;
+    background-color: #fff;
 }
 
 #container {
@@ -12,9 +12,9 @@ body {
     margin-left: auto;
     margin-right: auto;
 
-    background-color: #ABC8E2;
-    border-left: 12px solid #C4D7ED;
-    border-right: 12px solid #C4D7ED; 
+    background-color: #C4D7ED;
+    border-left: 12px solid #E1E6FA;
+    border-right: 12px solid #E1E6FA; 
 }
 
 /* misc styling classes */
