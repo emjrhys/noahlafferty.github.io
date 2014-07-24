@@ -1,8 +1,18 @@
 <html>
 	<head>
 		<title>Splash Compass</title>
+		<script>
+			document.onmousemove = function () {
+				var mouseX = event.clientX;
+				var mouseY = event.clientY;
+				document.getElementById("coords").innerHTML = mouseX + ", " + mouseY;
+			};
+		</script>
 	</head>
 	<body>
-		Yolo
+		<div style="text-align: center; margin-top: 100px;">
+			<img src="resources/compass.jpg"/ width="200" height="200"/>
+			<div id="coords"></div>
+		</div>
 	</body>
 </html>
