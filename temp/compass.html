@@ -5,14 +5,35 @@
 			document.onmousemove = function () {
 				var mouseX = event.clientX;
 				var mouseY = event.clientY;
-				document.getElementById("coords").innerHTML = mouseX + ", " + mouseY;
+				document.getElementById("coords").innerHTML = mouseX/10 + "&deg;, " + mouseY/10 + "&deg;";
 			};
 		</script>
+        <style>
+            html {
+                background: url(resources/westeros.png) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            #compass {
+                width: 120px;
+                height: 135px;
+                text-align: center;
+                font-size: 12px;
+                position: absolute;
+                bottom: 10;
+                left: 10;
+            }
+            #coords {
+                color: #fff;
+            }
+        </style>
 	</head>
 	<body>
-		<div style="text-align: center; margin-top: 100px;">
-			<img src="resources/compass.jpg"/ width="200" height="200"/>
-			<div id="coords"></div>
+		<div id="compass">
+			<img src="resources/compass_white.svg"/ width="120" height="120"/>
+			<div id="coords">0&deg;, 0&deg;</div>
 		</div>
 	</body>
 </html>
