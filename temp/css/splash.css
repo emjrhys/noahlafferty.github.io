@@ -1,0 +1,10 @@
+html {
+    background: 
+        url(../resources/arctic_land.svg) no-repeat center center fixed,
+        url(../resources/waves.svg) no-repeat center center fixed,
+        url(../resources/gradient_sea.svg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
