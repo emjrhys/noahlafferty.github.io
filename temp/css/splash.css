@@ -1,10 +1,107 @@
 html {
-    background: 
-        url(../resources/arctic_land.svg) no-repeat center center fixed,
-        url(../resources/waves.svg) no-repeat center center fixed,
-        url(../resources/gradient_sea.svg) no-repeat center center fixed;
+    /*background:
+        url(../resources/map_details.svg) no-repeat center center fixed,
+        url(../resources/land_mapTexture.svg) no-repeat center center fixed,
+        url(../resources/map_wave_outlines.svg) no-repeat center center fixed,
+        url(../resources/map_gradient_bg.svg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
+    background-size: cover;*/
+}
+
+body, p {
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    height: 100%;
+    width: 100%;    
+}
+
+.bg-gradient {
+    background: url(../resources/map_gradient_bg.svg) no-repeat center center fixed;
     background-size: cover;
+
+    position: absolute;
+    z-index: -2;
+
+    top: 0;
+}
+
+.bg-waves {
+    background: url(../resources/map_wave_outlines.svg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.bg-land {
+    background: url(../resources/land_mapTexture.svg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+#content {
+    margin: 200px auto 0px;
+    width: 600px;
+    border: 1px solid black;
+    text-align: center;
+    color: white;
+}
+
+.tag {
+    font-size: 28px;
+}
+
+.date {
+    font-size: 16px;
+    color: #777;
+}
+
+#form {
+    font-size: 13px;
+
+    margin-top: 50px;
+}
+
+#form p {
+    color: #002f2f;
+    margin-bottom: 5px;
+}
+
+#form input {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    
+    height: 36px;
+    width: 300px;
+    padding-left: 14px;
+}
+
+#form button {
+    background-color: rgba(12, 29, 255, 0.6);
+    color: #fff;
+
+    border: none;
+    border-radius: 3px;
+
+    height: 36px;
+    width: 90px;
+
+    margin-left: 4px;
+}
+
+
+/* Misc stying classes */
+.clear:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.upper {
+    text-transform: uppercase;
 }
