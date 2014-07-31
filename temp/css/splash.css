@@ -28,9 +28,20 @@ body, p {
     background-size: cover;
 }
 
+.bg-detail object {
+    position: absolute;
+    height: 100%;
+    margin: 0 auto;
+    left: 0; right: 0;
+}
+
 .content {
-    margin: 10% auto 0;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: auto;
+
     width: 600px;
+    height:420px;
     text-align: center;
     color: white;
 }
@@ -97,6 +108,10 @@ body, p {
 
     cursor: pointer;
     cursor: hand;
+}
+
+.content form button:hover {
+    background-color: rgba(0, 113, 188, .90);
 }
 
 ::-webkit-input-placeholder { color:#b3b3b3; }
