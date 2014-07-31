@@ -24,18 +24,23 @@ body, p {
 }
 
 .bg-land {
-    background: url(../resources/land.png) no-repeat center center fixed;
+    background: url(../resources/land_with_details.png) no-repeat center center fixed;
     background-size: cover;
 }
 
-.bg-detail object {
+.bg-detail {
+    background: url(../resources/map_details.svg) no-repeat center center fixed;
+    background-size: cover;
+}
+
+/*.bg-detail object {
     position: absolute;
-    height: 100%;
+    height: 103%;
     margin: 0 auto;
     left: 0; right: 0;
 
-    opacity: .8;
-}
+    overflow: hidden;
+}*/
 
 .content {
     position: absolute;
@@ -85,12 +90,21 @@ body, p {
     font-family: 'BrandonReg';
 
     border: none;
-    outline: none;
     border-radius: 4px;
     
     width: 350px;
     height: 35px;
     padding-left: 14px;
+
+    transition:.1s linear;
+    -webkit-transition:.1s linear;
+    -moz-transition:.1s linear;
+}
+
+.content form input:focus {
+    outline: none;
+    box-shadow: 0px 0px 7px #fff;
+    border-color: #fff;
 }
 
 .content form button {
