@@ -29,7 +29,7 @@ body, p {
     z-index: 0;
 }
 
-#container {
+#waves-container {
     position: absolute;
     height: 100%;
     width: 100%;
