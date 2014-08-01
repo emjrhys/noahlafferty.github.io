@@ -1,3 +1,9 @@
-.tag {
-    color: red;
+.content {
+    width: 500px;
+    height:420px;
+}
+
+.content form input {
+    width: 350px;
+    height: 35px;
 }
