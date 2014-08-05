@@ -51,7 +51,8 @@ body {
 }
 
 #scene li object {
-   
+    width: auto;
+    height: 120%;
 }
 
 #content-container {

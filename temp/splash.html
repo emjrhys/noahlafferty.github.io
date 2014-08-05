@@ -52,21 +52,22 @@
         </div>
         <script>
             $(document).ready(function () {
-                $("#waves").each(function () {
-                    // Calculate aspect ratio and store it in HTML data- attribute
+                $(window).resize(function () {
+                    // Get aspect ratio of window
                     var aspectRatio = $(this).width() / $(this).height();
                     $(this).data("aspect-ratio", aspectRatio);
 
-                    // Conditional statement
                     if (aspectRatio > 1) {
-                        // Image is landscape
-                        $(this).css({
-                            height: "120%"
+                        // Page is horizontal
+                        $("#waves").css({
+                            width: "120%",
+                            height: "auto"
                         });
                     } else if (aspectRatio < 1) {
-                        // Image is portrait
-                        $(this).css({
-                            width: "120%"
+                        // Page is verticle
+                        $("#waves").css({
+                            height: "120%",
+                            width: "auto"
                         });
                     }
                 });
