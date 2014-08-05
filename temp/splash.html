@@ -21,7 +21,7 @@
         </div>
         <div id="waves-container">
             <ul id="scene">
-                <li class="layer" data-depth="0.2"></li>
+                <li class="layer" data-depth="0.2"><object id="waves" type="image/svg+xml" data="resources/map_wave_outlines.svg"></object></li>
             </ul>
 
         </div>
@@ -50,5 +50,27 @@
                 </form>
             </div>
         </div>
+        <script>
+            $(document).ready(function () {
+                $("#waves").each(function () {
+                    // Calculate aspect ratio and store it in HTML data- attribute
+                    var aspectRatio = $(this).width() / $(this).height();
+                    $(this).data("aspect-ratio", aspectRatio);
+
+                    // Conditional statement
+                    if (aspectRatio > 1) {
+                        // Image is landscape
+                        $(this).css({
+                            height: "100%"
+                        });
+                    } else if (aspectRatio < 1) {
+                        // Image is portrait
+                        $(this).css({
+                            width: "100%"
+                        });
+                    }
+                });
+            });
+        </script> 
     </body>
 </html>
