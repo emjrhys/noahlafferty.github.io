@@ -8,15 +8,18 @@
 }
 
 .content object {
+    position: relative;
     top: 24%;
 }
 
 .content form input {
-    width: 95%;
-    height: 35px;
+    width: 90%;
+    height: 42px;
+    font-size: 27px;
 }
 
 .content form button {
-    width: 95%;
-    height: 35px;
+    width: 90%;
+    height: 42px;
+    font-size: 29px;
 }
