@@ -1,0 +1,56 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+            var moveLinks = function() {
+                var h = window.innerHeight;
+                var w = window.innerWidth;
+                if (h/w < .58) {
+                    var top_m = w/24;
+                    $("#link1").removeClass("tall").addClass("wide").css({"margin-left":0,"margin-top":top_m,"width":w/18});
+                }
+                else {
+                    var right_m = h/2.58;
+                    $("#link1").removeClass("wide").addClass("tall").css({"margin-left":-right_m,"margin-top":0,"height":h/20});
+                }
+            }
+
+            $(window).resize(moveLinks).ready(moveLinks);
+    });
+</script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #container-main {
+        height: 100%;
+        width: 100%;
+        background: url(bg3.jpg) no-repeat center center fixed;
+        background-size: cover;
+    }
+    .link {
+        position: absolute;
+        width: 80px;
+        height: 40px;
+    }
+    .tall {
+        background-color: blue;
+        opacity: .5;
+        left: 50%;
+        top: 57%;
+        margin-top: 0;
+    }
+    .wide {
+        background-color: red;
+        opacity: .5;
+        left: 27.5%;
+        top: 50%;
+        margin-left: 0;
+    }
+</style>
+<body>
+    <div id="container-main">
+        <a href="#" class="link" id="link1"></a>
+    </div>
+</body>
+<!-- height to width ratio: .58 -->
