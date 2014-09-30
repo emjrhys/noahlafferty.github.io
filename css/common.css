@@ -19,7 +19,7 @@ body {
     width: 120%;
     top: -50%;
     left: -10%;
-    background-color: #ff1e56;
+    background-color: #c90060;
 
     -ms-transform: rotate(-7deg); /* IE 9 */
     -webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
@@ -37,9 +37,6 @@ body {
     width: 30%;
     height: 100%;
     background-color: #fff;
-
-    //background-image: radial-gradient(circle at 100% 60%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40px, white 10px);
-    background-repeat: no-repeat;
 
     -webkit-transition-duration: .5s;
     -moz-transition-duration: .5s;
@@ -81,49 +78,26 @@ body {
     font-family: ProximaSB;
 }
 
-#left-side a {
-    display: block;
-    text-transform: lowercase;
-    text-decoration: none;
-    color: #333;
-
-    padding: 5px 12px;
-
-    font-size: 20px;
-
-    -webkit-transition-duration: .1s;
-    -moz-transition-duration: .1s;
-    -o-transition-duration: .1s;
-    transition-duration: .1s;
-}
-
-#left-side a:hover, #left-side a.on {
-    background-color: rgba(255,30,86,.2);
-}
-
-#left-side a.hide {
-    display: none;
-}
-
 #left-side p {
-    margin-top: 10px;
+    margin-top: 6px;
     padding-right: 14px;
     position: absolute;
     right: 0;
     top: 70%;
     color: #888;
     font-family: ProximaLight;
-}
 
-.close {
-    margin-top: 60px;
-    background-color: rgba(50, 50, 50,.2);
+    -webkit-transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    transition-duration: .5s;
+
 }
 
 #container-main.open {
-    -ms-transform: rotate(-25deg); /* IE 9 */
-    -webkit-transform: rotate(-25deg); /* Chrome, Safari, Opera */
-    transform: rotate(-25deg);
+    -ms-transform: rotate(-40deg); /* IE 9 */
+    -webkit-transform: rotate(-40deg); /* Chrome, Safari, Opera */
+    transform: rotate(-40deg);
 }
 
 #container-main.open #left-side {
@@ -137,11 +111,10 @@ body {
 
 }
 
-#container-main.open #left-side div {
-    width: 25%;
+#container-main.open #left-side p {
+    opacity: 0;
 }
 
-#toggle {
-    position: absolute;
-    z-index: 100;
+#container-main.open #left-side div {
+    width: 25%;
 }
