@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<title>Noah Lafferty</title>
+		<link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico"/>
 		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
 		<link rel="stylesheet" type="text/css" href="css/main.css"/>
 	</head>
@@ -22,29 +23,30 @@
 			</div>
 		</div>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			var interests = ["stuff", "other stuff"];
-			var curr = 1;
+		<script>
+			$(document).ready(function() {
+				var interests = ["data visualization", "drawing", "hackathons", "baking", "cool css", "indie music", "beautiful design", "biking", "python", "free pizza", "magnets", "driving at night", "jQuery", "wolves", "useless gadgets", "stickers", "learning new programming languages", "camping", "collecting playing cards"];
+				var curr = 1;
+				console.log(interests.length);
 
-            $(".interest").html(interests[0] + ".")
-			
-            function cycle() {
-                $(".interest").fadeTo(300, 0);
-                setTimeout(function() {
-                    $(".interest").html(interests[curr] + ".");
-                    $(".interest").fadeTo(300, 1);
+	            $(".interest").html(interests[0] + ".")
+				
+	            function cycle() {
+	                $(".interest").fadeTo(300, 0);
+	                setTimeout(function() {
+	                    $(".interest").html(interests[curr] + ".");
+	                    $(".interest").fadeTo(300, 1);
 
-                    curr = (curr+1)%interests.length;
-                    setTimeout(cycle, 2500);
-                }, 800);
-			}
+	                    curr = (curr+1)%interests.length;
+	                    setTimeout(cycle, 2500);
+	                }, 800);
+				}
 
-            setTimeout(function() {
-                $(".bio").fadeTo(2500, .7);
-            }, 700);
-            setTimeout(cycle, 3500);
-		});
-	</script>
+	            setTimeout(function() {
+	                $(".bio").fadeTo(2500, .7);
+	                setTimeout(cycle, 2800);
+	            }, 700);
+			});
+		</script>
 	</body>
 </html>
