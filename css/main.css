@@ -57,6 +57,7 @@ a {
 
 .bio p a:hover {
 	color: #fff;
+	opacity: 1;
 }
 
 .bio span {
@@ -85,5 +86,6 @@ a {
 }
 
 .bio a:hover {
-	color: #eee;
+	color: #fff;
+	opacity: 1;
 }
