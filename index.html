@@ -1,27 +1,50 @@
 <html>
-    <head>
-        <title>Noah Lafferty</title>
-        <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
-        <link rel="stylesheet" type="text/css" href="css/common.css"/>
-    </head>
-    <body>
-        <div id="container-main">
-            <div id="left-side">
-                <div>
-                    <h2>Noah Lafferty</h2>
-                    <p>click anywhere</p>
+	<head>
+		<title>Noah Lafferty</title>
+		<link rel="stylesheet" type="text/css" href="css/fonts.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="bio">
+				<h3>Noah Lafferty</h3>
+				<p>I am a third-year <a href="http://cs.illinois.edu/" target="_blank">Computer Science</a> major at the <a href="http://illinois.edu/" target="_blank">University of Illinois</a> with a passion for front-end development and design. </p>
+                <p>I'm currently the lead developer at <a href="http://www.colorable.co" target="_blank">Colorable Worldwide</a> and <a href="http://www.hackillinois.org" target="_blank">HackIllinois</a>. Previously, I interned at <a href="http://www.amazon.com" target="_blank">Amazon</a> and <a href="http://www.pathfindersoftware.com" target="_blank">Pathfinder Software</a>.</p>
+
+                <p>I also enjoy <span class="interest"></span></p>
+				<hr>
+                <div class="links">
+				    <a href="mailto:noah.lafferty@gmail.com" target="_blank">email</a>
+				    <a href="assets/resume.pdf" target="_blank">resume</a> 
+				    <a href="http://www.linkedin.com/pub/noahlafferty" target="_blank">linkedin</a>
+				    <a href="https://github.com/noahjl1" target="_blank">github</a>
                 </div>
-            </div>
-            <div id="right-side" style="">
-            </div>
-        </div>
-    </body>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#container-main").click(function() {
-                $("#container-main").toggleClass("open");
-            });
-        });
-    </script>
+			</div>
+		</div>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var interests = ["stuff", "other stuff"];
+			var curr = 1;
+
+            $(".interest").html(interests[0] + ".")
+			
+            function cycle() {
+                $(".interest").fadeTo(300, 0);
+                setTimeout(function() {
+                    $(".interest").html(interests[curr] + ".");
+                    $(".interest").fadeTo(300, 1);
+
+                    curr = (curr+1)%interests.length;
+                    setTimeout(cycle, 2500);
+                }, 800);
+			}
+
+            setTimeout(function() {
+                $(".bio").fadeTo(2500, .7);
+            }, 700);
+            setTimeout(cycle, 3500);
+		});
+	</script>
+	</body>
 </html>

@@ -59,5 +59,102 @@
          url('typefaces/ProximaNova-Light.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'AvenirLTStdLightItalic';
+    src: url('typefaces/Avenir/avenirltstd-lightoblique.eot');
+    src: url('typefaces/Avenir/avenirltstd-lightoblique.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-lightoblique.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-lightoblique.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-lightoblique.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-lightoblique.svg#AvenirLTStdLightItalic') format('svg');
+}
 
+@font-face {
+    font-family: 'AvenirLTStdRegular';
+    src: url('typefaces/Avenir/avenirltstd-roman.eot');
+    src: url('typefaces/Avenir/avenirltstd-roman.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-roman.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-roman.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-roman.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-roman.svg#AvenirLTStdRegular') format('svg');
+}
 
+@font-face {
+    font-family: 'AvenirLTStdItalic';
+    src: url('typefaces/Avenir/avenirltstd-oblique.eot');
+    src: url('typefaces/Avenir/avenirltstd-oblique.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-oblique.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-oblique.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-oblique.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-oblique.svg#AvenirLTStdItalic') format('svg');
+}
+
+@font-face {
+    font-family: 'AvenirLTStd350';
+    src: url('typefaces/Avenir/avenirltstd-book.eot');
+    src: url('typefaces/Avenir/avenirltstd-book.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-book.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-book.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-book.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-book.svg#AvenirLTStd350') format('svg');
+}
+
+@font-face {
+    font-family: 'AvenirLTStd750Italic';
+    src: url('typefaces/Avenir/avenirltstd-blackoblique.eot');
+    src: url('typefaces/Avenir/avenirltstd-blackoblique.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-blackoblique.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-blackoblique.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-blackoblique.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-blackoblique.svg#AvenirLTStd750Italic') format('svg');
+}
+
+@font-face {
+    font-family: 'AvenirLTStd550Italic';
+    src: url('typefaces/Avenir/avenirltstd-mediumoblique.eot');
+    src: url('typefaces/Avenir/avenirltstd-mediumoblique.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-mediumoblique.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-mediumoblique.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-mediumoblique.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-mediumoblique.svg#AvenirLTStd550Italic') format('svg');
+}
+
+@font-face {
+    font-family: 'AvenirLTStdLight';
+    src: url('typefaces/Avenir/avenirltstd-light.eot');
+    src: url('typefaces/Avenir/avenirltstd-light.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-light.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-light.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-light.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-light.svg#AvenirLTStdLight') format('svg');
+}
+
+@font-face {
+    font-family: 'AvenirLTStdBold';
+    src: url('typefaces/Avenir/avenirltstd-heavy.eot');
+    src: url('typefaces/Avenir/avenirltstd-heavy.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-heavy.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-heavy.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-heavy.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-heavy.svg#AvenirLTStdBold') format('svg');
+}
+
+@font-face {
+    font-family: 'AvenirLTStd350Italic';
+    src: url('typefaces/Avenir/avenirltstd-bookoblique.eot');
+    src: url('typefaces/Avenir/avenirltstd-bookoblique.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-bookoblique.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-bookoblique.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-bookoblique.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-bookoblique.svg#AvenirLTStd350Italic') format('svg');
+}
+
+@font-face {
+    font-family: 'AvenirLTStdBoldItalic';
+    src: url('typefaces/Avenir/avenirltstd-heavyoblique.eot');
+    src: url('typefaces/Avenir/avenirltstd-heavyoblique.eot') format('embedded-opentype'),
+         url('typefaces/Avenir/avenirltstd-heavyoblique.woff2') format('woff2'),
+         url('typefaces/Avenir/avenirltstd-heavyoblique.woff') format('woff'),
+         url('typefaces/Avenir/avenirltstd-heavyoblique.ttf') format('truetype'),
+         url('typefaces/Avenir/avenirltstd-heavyoblique.svg#AvenirLTStdBoldItalic') format('svg');
+}
