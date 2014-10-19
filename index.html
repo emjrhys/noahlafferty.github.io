@@ -23,6 +23,7 @@
 			</div>
 		</div>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/jQuery.html5Loader.min.js"></script>
 		<script>
 			$(document).ready(function() {
 				var interests = ["data visualization", "drawing", "hackathons", "baking", "cool css", "indie music", "beautiful design", "biking", "python", "free pizza", "magnets", "driving at night", "jQuery", "wolves", "useless gadgets", "stickers", "learning new programming languages", "camping", "collecting playing cards"];
@@ -41,14 +42,21 @@
 	                    setTimeout(cycle, 2500);
 	                }, 800);
 				}
-
-	            setTimeout(function() {
-	            	$(".container").fadeTo(1500, 1);
-	            	setTimeout(function() {
-	                	$(".bio").fadeTo(2000, .7);
-	                	setTimeout(cycle, 2800);
-	                }, 1200);
-	            }, 300);
+				$.html5Loader({
+				    filesToLoad:    'assets/loader.json',
+				    onBeforeLoad:       function () {},
+				    onComplete:         function () {
+				      	setTimeout(function() {
+			            	$(".container").fadeTo(1500, 1);
+			            	setTimeout(function() {
+			                	$(".bio").fadeTo(2000, .7);
+			                	setTimeout(cycle, 2800);
+			                }, 1200);
+			            }, 200);
+				    },
+				    onElementLoaded:    function () {},
+				    onUpdate:           function () {}
+				});
 			});
 		</script>
 	</body>
