@@ -43,9 +43,12 @@
 				}
 
 	            setTimeout(function() {
-	                $(".bio").fadeTo(2500, .7);
-	                setTimeout(cycle, 2800);
-	            }, 700);
+	            	$(".container").fadeTo(1500, 1);
+	            	setTimeout(function() {
+	                	$(".bio").fadeTo(2500, .7);
+	                	setTimeout(cycle, 2800);
+	                }, 1200);
+	            }, 300);
 			});
 		</script>
 	</body>
