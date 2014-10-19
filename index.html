@@ -23,7 +23,7 @@
 			</div>
 		</div>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="js/jQuery.html5Loader.min.js"></script>
+		<!--<script src="js/jQuery.html5Loader.min.js"></script>-->
 		<script>
 			$(document).ready(function() {
 				var interests = ["data visualization", "drawing", "hackathons", "baking", "cool css", "indie music", "beautiful design", "biking", "python", "free pizza", "magnets", "driving at night", "jQuery", "wolves", "useless gadgets", "stickers", "learning new programming languages", "camping", "collecting playing cards"];
@@ -42,10 +42,10 @@
 	                    setTimeout(cycle, 2500);
 	                }, 800);
 				}
-				$.html5Loader({
+				/*$.html5Loader({
 				    filesToLoad:    'assets/loader.json',
 				    onBeforeLoad:       function () {},
-				    onComplete:         function () {
+				    onComplete:         function () {*/
 				      	setTimeout(function() {
 			            	$(".container").fadeTo(1500, 1);
 			            	setTimeout(function() {
@@ -53,10 +53,10 @@
 			                	setTimeout(cycle, 2800);
 			                }, 1200);
 			            }, 200);
-				    },
+				    /*},
 				    onElementLoaded:    function () {},
 				    onUpdate:           function () {}
-				});
+				});*/
 			});
 		</script>
 	</body>
