@@ -98,4 +98,12 @@ a {
 		max-width: 460px;
 		left: 5%;
 	}
+
+	.bio hr {
+		width: 272px;
+	}
+
+	.bio .links a {
+		margin-right: 10px;
+	}
 }
