@@ -21,10 +21,11 @@ a {
 }
 
 .bio {
+	display: inline-block;
 	font-family: ProximaLight;
 	position: absolute;
 	width: 460px;
-	height: 220px;
+	height: auto;
 	left: 10%;
 	bottom: 10%;
 	color: #aaa;
@@ -95,13 +96,13 @@ a {
 
 	.bio {
 		width: 90%;
-		height: 35%;
 		max-width: 460px;
 		left: 5%;
 	}
 
 	.bio hr {
 		width: 272px;
+
 	}
 
 	.bio .links a {
