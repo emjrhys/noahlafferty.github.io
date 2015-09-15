@@ -1,9 +1,7 @@
 // set up gulp and packages
 var gulp 				= require('gulp'),
 	sass 				= require('gulp-sass'),
-	min 				= require('gulp-minify-css'),
 	concat 				= require('gulp-concat'),
-	concatCSS 			= require('gulp-concat-css'),
 	jshint              = require('gulp-jshint'),
     uglify 				= require('gulp-uglify'),
     notify              = require('gulp-notify');
@@ -42,4 +40,7 @@ gulp.task('js', ['jshint',], function(){
 });
 
 gulp.task('build', ['sass', 'js']);
+gulp.task('watch', function(){
+	gulp.watch('./assets/styles/scss/**/*.scss',['sass']);
+});
 gulp.task('default', function(){});
