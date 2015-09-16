@@ -8,16 +8,68 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>Noah Lafferty</title>
-		<link rel="icon" href="assets/img/favicon.ico">
+		<link rel="icon" href="./assets/img/favicon.ico">
 
 		<link rel="stylesheet" href="./assets/styles/css/normalize.css">
-		<link rel="stylesheet" href="./assets/styles/css/fonts.css">
+		<link href='https://fonts.googleapis.com/css?family=Libre+Baskerville|Open+Sans:400,600' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="./assets/styles/css/styles.css">
 
-		<script src="./assets/js/lib/modernizr-2.8.3.min.js"></script>
+		<script src="./assets/js/lib/modernizr-2.8.3.js"></script>
 	</head>
 	<body>
-		
+		<div class="content-wrapper">
+			<section id="bio">
+				<h1>Hi bumba</h1>
+				<p>Hi I'm Noah Lafferty, and I go to school at the university of UIUC. Check out my <a class="portfolio-link">portfolio</a>!</p>
+			</section>
+			<section id="portfolio" class="closed">
+				<button class="portfolio-toggle">
+					<svg>
+						<defs>
+							<pattern id="pattern-stripe" 
+							width="26" height="26" 
+							patternUnits="userSpaceOnUse"
+							patternTransform="rotate(45)">
+							<rect width="13" height="26" transform="translate(0,0)" fill="white"></rect>
+							</pattern>
+							<mask id="mask-stripe">
+							<rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-stripe)" />
+							</mask>      
+						</defs>
+
+						<!-- striped bar -->
+						<rect class="stripe-fill" x="0" y="0"></rect>
+					</svg>
+					<span>Portfolio</span>
+				</button>
+				<ul>
+					<li class="portfolio__project portfolio__project--hackil2016">
+						<figure class="banner">
+							<img src="./assets/img/banners/hackillinois2016.png">
+						</figure>
+					</li>
+					<li class="portfolio__project portfolio__project--rp2015">
+						<figure class="banner">
+							<img src="./assets/img/banners/reflectionsprojections.gif">
+						</figure>
+					</li>
+					<li class="portfolio__project portfolio__project--illicit">
+						<figure class="banner">
+							<img src="./assets/img/banners/illicitdesign.gif">
+						</figure>
+					</li>
+					<li class="portfolio__project portfolio__project--hackil2015">
+						<figure class="banner">
+							<img src="./assets/img/banners/hackillinois2015.png">
+						</figure>
+					</li>
+				</ul>
+			</section>
+		</div>
+
 		<script src="./assets/js/lib/jquery-3.0.0-alpha1.js"></script>
+		<!-- build:dev_js_index -->
+		<script src="./assets/js/main.js"></script>
+		<!-- endbuild -->
 	</body>
 </html>

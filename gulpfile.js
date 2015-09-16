@@ -4,7 +4,9 @@ var gulp 				= require('gulp'),
 	concat 				= require('gulp-concat'),
 	jshint              = require('gulp-jshint'),
     uglify 				= require('gulp-uglify'),
-    notify              = require('gulp-notify');
+    notify              = require('gulp-notify'),
+    html_replace        = require('gulp-html-replace');
+
 
 // location constants
 var ALL_SCSS 			= './assets/styles/sass/*.scss',
@@ -13,7 +15,10 @@ var ALL_SCSS 			= './assets/styles/sass/*.scss',
 
 	ALL_JS_LIB			= './assets/js/lib/*.js',
 	ALL_JS_CORE			= './assets/js/*.js',
-	DEST_JS_CORE		= './assets/js';
+	DEST_JS_CORE		= './assets/js',
+
+    ALL_HTML            = './**/*.html';
+    DEST_HTML           = './';
 
 // convert sass to css
 gulp.task('sass', function(){
@@ -39,8 +44,21 @@ gulp.task('js', ['jshint',], function(){
         .pipe(gulp.dest(DEST_JS_CORE));
 });
 
-gulp.task('build', ['sass', 'js']);
-gulp.task('watch', function(){
-	gulp.watch('./assets/styles/scss/**/*.scss',['sass']);
+// corrects imports
+gulp.task('html-imports', function(){
+    gulp.src(ALL_HTML)
+        .pipe(html_replace({
+            'dev_js_index': './assets/js/bundle.min.js',
+        }))
+        .pipe(gulp.dest(DEST_HTML));
 });
+
+// watch and compile sass
+gulp.task('watch', function(){
+    gulp.watch('./assets/styles/sass/**/*.scss',['sass']);
+});
+
+// compile sass and minify js
+gulp.task('build', ['sass', 'js']);
+
 gulp.task('default', function(){});
