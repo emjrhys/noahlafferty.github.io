@@ -8,7 +8,9 @@ h1, h2 {
   margin: 0; }
 
 a {
-  text-decoration: none; }
+  color: #692342;
+  text-decoration: none;
+  font-weight: 600; }
   a:hover {
     text-decoration: underline;
     cursor: pointer; }
@@ -17,9 +19,6 @@ a {
   position: relative;
   height: 100%;
   width: 100%; }
-
-.portfolio-link {
-  color: #692342; }
 
 section#portfolio {
   position: absolute;
@@ -36,19 +35,20 @@ section#portfolio {
     section#portfolio.closed:hover, section#portfolio.closed.hover {
       width: 120px;
       cursor: pointer; }
-  section#portfolio ul {
-    width: calc(100% - $portfolio-button-width);
-    height: 100%;
-    margin: 0 0 0 60px;
-    list-style: none;
-    padding: 0;
-    overflow-y: scroll; }
-  section#portfolio figure {
+
+.portfolio__banners {
+  width: calc(100% - $portfolio-button-width);
+  height: 100%;
+  margin: 0 0 0 60px;
+  list-style: none;
+  padding: 0;
+  overflow-y: scroll; }
+  .portfolio__banners figure {
     position: relative;
     margin: 0 0 4px;
     height: 250px;
     overflow: hidden; }
-  section#portfolio img {
+  .portfolio__banners img {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
