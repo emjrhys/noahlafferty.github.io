@@ -20,17 +20,17 @@
 			<div class="bio">
 				<h3>Noah Lafferty</h3>
 				<p>
-					I am a fourth-year <a href="http://cs.illinois.edu/" target="_blank">Computer Science</a> major at the <a href="http://illinois.edu/" target="_blank">University of Illinois</a> with a passion for front-end development and design. 
+					I am a <a href="http://cs.illinois.edu/" target="_blank">Computer Science</a> major at the <a href="http://illinois.edu/" target="_blank">University of Illinois at Urbana-Champaign</a> with a passion for front-end development and design.
 				</p>
                 <p>
-                	I'm currently the web chair for <a href="https://www-s.acm.illinois.edu/conference/2015/">Reflections | Projections</a> and a developer for <a href="http://www.hackillinois.org" target="_blank">HackIllinois</a>. Previously, I interned at <a href="http://www.amazon.com" target="_blank">Amazon</a> and <a href="http://www.pathfindersoftware.com" target="_blank">Pathfinder Software</a>.
+                	I'm currently working on <a href="http://www.hyperflora.tv">Hyperflora</a> and teaching myself animation. Previously, I interned at <a href="http://www.ibm.com/design">IBM Design</a>, <a href="http://www.amazon.com" target="_blank">Amazon</a>, and <a href="http://www.pathfindersoftware.com" target="_blank">Pathfinder Software</a>.
                 </p>
 
                 <p>I also enjoy <span class="interest"></span></p>
 				<hr>
                 <div class="links">
 				    <a href="mailto:noah.lafferty@gmail.com" target="_blank">email</a>
-				    <a href="assets/resume.pdf" target="_blank">resume</a> 
+				    <a href="assets/resume.pdf" target="_blank">resume</a>
 				    <a href="http://www.linkedin.com/in/noahlafferty" target="_blank">linkedin</a>
 				    <a href="https://github.com/noahjl1" target="_blank">github</a>
                 </div>
@@ -45,7 +45,7 @@
 				console.log(interests.length);
 
 	            $(".interest").html(interests[0] + ".")
-				
+
 	            function cycle() {
 	                $(".interest").fadeTo(300, 0);
 	                setTimeout(function() {
@@ -54,12 +54,12 @@
 
 	                    curr = (curr+1)%interests.length;
 	                    setTimeout(cycle, 2500);
-	                }, 800);
+	                }, 400);
 				}
 		      	setTimeout(function() {
-	            	$(".container").fadeTo(1500, 1);
+	            	$(".container").fadeTo(1000, 1);
 	            	setTimeout(function() {
-	                	$(".bio").fadeTo(2000, .8);
+	                	$(".bio").fadeTo(1500, .8);
 	                	setTimeout(cycle, 2800);
 	                }, 1200);
 	            }, 300);
