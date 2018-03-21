@@ -1,0 +1,346 @@
+/*********************
+COLORS
+*********************/
+
+$portfolio-colors: (
+  'non-euclidean': #F19181, //#F9E4AD,
+  'hyperflora': #F9CB8F, //#E6B098,
+  'ibm': #F3F5C4, //#CC4452,
+  'reflections': #93EDD4, //#723147,
+  'hackillinois': #3CBAC8 //#31152B
+);
+
+$dark-grey: #222;
+
+/*********************
+VARIABLES
+*********************/
+
+$overlay-opacity: .85;
+$hover-opacity: 0.3;
+$bg-opacity: .5;
+$sin-20: 0.342;
+$cos-20: 0.94;
+
+/*********************
+MIXINS & FUNCTIONS
+*********************/
+
+@mixin breakpoint($point) {
+   @if $point == xlarge {
+     @media (min-width: 70em) { @content ; }
+  }
+   @else if $point == large {
+     @media (min-width: 64em) { @content ; }
+  }
+    @else if $point == medium {
+     @media (min-width: 50em) { @content ; }
+  }
+   @else if $point == small {
+     @media (min-width: 37.5em)  { @content ; }
+  }
+  @else if $point == xsmall {
+     @media (max-width: 37.5em)  { @content ; }
+
+  }
+}
+
+@function get-color($key: 'primary') {
+  @return map-get($portfolio-colors, $key);
+}
+
+@function calc-stripe-width($stripe-height) {
+  @return calc((100vw + #{$stripe-height} * #{$sin-20}) / #{$cos-20});
+
+}
+
+@function calc-stripe-offset($stripe-height) {
+  // $left-side: calc(calc-stripe-width($stripe-height) / 2 * (1 - #{$cos-20}));
+  // $right-side: calc(#{$stripe-height} / 2 * #{$sin-20});
+  // @return calc(-1 * (#{$left-side} + #{$right-side}));
+  @return calc(-1 * (((100vw + 27.4px) * .0319) + #{$stripe-height} / 2 * #{$sin-20}));
+}
+
+/*********************
+STYLES
+*********************/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  font-family: 'Noto Sans';
+  color: $dark-grey;
+}
+
+section {
+  padding: 30px 40px;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: opacity .4s, padding-top .4s;
+
+
+  h1, h2 {
+    margin-bottom: 10px;
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  a {
+    margin-right: 3px;
+    text-decoration: none;
+  }
+
+  p {
+    max-width: 800px;
+    margin-bottom: 12px;
+
+    font-family: 'Noto Serif';
+  }
+
+  p:nth-child(3) {
+    max-width: 600px;
+  }
+
+  &.hidden {
+    opacity: 0;
+    padding-top: 60px;
+  }
+
+  &.non-euclidean {
+    background: rgba(get-color('non-euclidean'), $bg-opacity);
+  }
+
+  &.hyperflora {
+    background: rgba(get-color('hyperflora'), $bg-opacity);
+  }
+
+  &.ibm {
+    background: get-color('ibm');
+  }
+
+  &.reflections {
+    background: get-color('reflections');
+  }
+
+  &.hackillinois {
+    background: get-color('hackillinois');
+  }
+}
+
+ul {
+  list-style: none;
+  position: absolute;
+  bottom: calc(-1 * 100vw * .2);
+  width: 100vw;
+
+  &.minimized li header {
+    $height: 50px;
+    height: $height;
+    width: calc-stripe-width($height);
+    transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+
+    font-size: 1.2em;
+    border-bottom: 6px solid #fff;
+
+    a {
+      padding-right: 30px;
+    }
+  }
+}
+
+li {
+  header {
+    border-bottom: 10px solid #fff;
+    box-sizing: border-box;
+
+    $height: 60px;
+    height: $height;
+    width: calc-stripe-width($height);
+    transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+
+    font-size: 1.4em;
+    cursor: pointer;
+    transition-duration: .4s;
+    transition-property: height, font-size, border-bottom, transform, width;
+
+    @include breakpoint(medium) {
+      $height: 70px;
+      height: $height;
+      width: calc-stripe-width($height);
+      transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+      font-size: 1.6em;
+    }
+
+    @include breakpoint(large) {
+      $height: 80px;
+      height: $height;
+      width: calc-stripe-width($height);
+      transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+      font-size: 1.8em;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      box-sizing: border-box;
+
+      width: 100%;
+      height: 100%;
+      padding-right: 50px;
+
+      text-decoration: none;
+
+      transition: background .3s, padding-right .4s;
+    }
+
+    h3 {
+      color: #fff;
+    }
+  }
+
+  &.footer {
+    $height: 150px;
+    height: $height;
+    width: calc-stripe-width($height);
+
+    transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+    background-color: #723147;
+  }
+}
+
+li.non-euclidean header {
+  background: url(../assets/banners/non-euclidean.png) no-repeat center center;
+  background-size: cover;
+
+  $overlay-color: get-color('non-euclidean');
+
+  a {
+    background: rgba($overlay-color, $overlay-opacity);
+
+    &:hover, &.selected {
+      background: rgba($overlay-color, $hover-opacity);
+    }
+  }
+}
+
+li.hyperflora header {
+  background: url(../assets/banners/hyperflora.png) no-repeat center center;
+  background-size: cover;
+
+  $overlay-color: get-color('hyperflora');
+
+  a {
+    background: rgba($overlay-color, $overlay-opacity);
+
+    &:hover, &.selected {
+      background: rgba($overlay-color, $hover-opacity);
+    }
+  }
+}
+
+li.ibm header {
+  background: url(../assets/banners/ibm.png) no-repeat center center;
+  background-size: cover;
+
+  $overlay-color: get-color('ibm');
+
+  a {
+    background: rgba($overlay-color, $overlay-opacity);
+
+    &:hover, &.selected {
+      background: rgba($overlay-color, $hover-opacity);
+    }
+  }
+}
+
+li.reflections header {
+  background: url(../assets/banners/reflections.png) no-repeat center center;
+  background-size: cover;
+
+  $overlay-color: get-color('reflections');
+
+  a {
+    background: rgba($overlay-color, $overlay-opacity);
+
+    &:hover, &.selected {
+      background: rgba($overlay-color, $hover-opacity);
+    }
+  }
+}
+
+li.hackillinois header {
+  background: url(../assets/banners/hackillinois.png) no-repeat center center;
+  background-size: cover;
+
+  $overlay-color: get-color('hackillinois');
+
+  a {
+    background: rgba($overlay-color, $overlay-opacity);
+
+    &:hover, &.selected {
+      background: rgba($overlay-color, $hover-opacity);
+    }
+  }
+}
+
+
+
+/*********************
+MISC
+*********************/
+
+/* Email tooltip from https://jsfiddle.net/i_like_robots/qrXyE/ */
+.field-tip {
+    position:relative;
+    cursor: context-menu;
+}
+.field-tip .tip-content {
+    position:absolute;
+    top:-6px; /* - top padding */
+    right:9999px;
+    width:180px;
+    margin-right:-200px; /* width + left/right padding */
+    padding: 8px 12px;
+    color:#fff;
+    font-size: .9em;
+    background:#333;
+    border-radius: 4px;
+    -webkit-box-shadow:2px 2px 5px #aaa;
+       -moz-box-shadow:2px 2px 5px #aaa;
+            box-shadow:2px 2px 5px #aaa;
+    opacity:0;
+    -webkit-transition:opacity 250ms ease-out;
+       -moz-transition:opacity 250ms ease-out;
+        -ms-transition:opacity 250ms ease-out;
+         -o-transition:opacity 250ms ease-out;
+            transition:opacity 250ms ease-out;
+}
+/* <http://css-tricks.com/snippets/css/css-triangle/> */
+.field-tip .tip-content:before {
+    content:' '; /* Must have content to display */
+    position:absolute;
+    top:50%;
+    left:-16px; /* 2 x border width */
+    width:0;
+    height:0;
+    margin-top:-8px; /* - border width */
+    border:8px solid transparent;
+    border-right-color:#333;
+}
+.field-tip:hover .tip-content {
+    right:-20px;
+    opacity:1;
+}
