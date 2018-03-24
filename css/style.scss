@@ -13,6 +13,7 @@ $portfolio-colors: (
 
 $bg-color: #fbf7f5;
 $text-color: #222;
+$dark-text-color: #1b587d;
 $link-color: #CC4452;
 $link-hover-color: #E6B098;
 
@@ -172,6 +173,14 @@ section {
     a {
       padding-right: 30px;
     }
+
+    .portfolio-close {
+      opacity: 1;
+    }
+
+    &.footer {
+      cursor: pointer;
+    }
   }
 
   li {
@@ -184,7 +193,6 @@ section {
     transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
 
     font-size: 1.4em;
-    cursor: pointer;
     transition-duration: .4s;
     transition-property: height, font-size, border-bottom, transform, width;
 
@@ -215,12 +223,13 @@ section {
       padding-right: 50px;
 
       text-decoration: none;
+      color: #fff;
 
       transition: background .3s, padding-right .4s;
     }
 
-    h3 {
-      color: #fff;
+    .portfolio-nav {
+      cursor: pointer;
     }
 
     &.footer {
@@ -230,6 +239,23 @@ section {
 
       transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
       background-color: get-color('footer');
+      cursor: default;
+    }
+  }
+
+  .portfolio-close {
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-right: 40px !important;
+
+    opacity: 0;
+    color: $dark-text-color;
+    text-transform: lowercase;
+
+    transition: opacity .4s, color .2s;
+
+    &:hover {
+      color: $bg-color;
     }
   }
 }
@@ -311,6 +337,7 @@ li.hackillinois {
 
 .video-wrapper-wrapper {
   max-width: 700px;
+  margin-top: 30px;
 
   .video-wrapper {
   	position: relative;
@@ -331,13 +358,24 @@ li.hackillinois {
 .gallery {
   position: relative;
   max-width: 800px;
+  margin-top: 30px;
+
+  &::before {
+    content: '';
+  	display: block;
+  	padding-top: 56.25%;
+  }
 
   img {
+    position: absolute;
+    top: 0;
     width: 100%;
-    display: none;
+    opacity: 0;
+
+    transition: opacity .5s;
 
     &.selected {
-      display: block;
+      opacity: 1;
     }
   }
 

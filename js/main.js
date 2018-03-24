@@ -22,6 +22,12 @@ $('a.portfolio-nav').click(function (event) {
   }
 })
 
+$('.portfolio-close').click(function() {
+  window.location.hash = ''
+})
+
+var galleryCycleInterval
+
 function openPortfolioSection(section) {
   $('a').removeClass('selected')
   $('section').addClass('hidden')
@@ -30,6 +36,15 @@ function openPortfolioSection(section) {
   $('.' + section).removeClass('hidden')
 
   $('#portfolio').addClass('minimized')
+
+  // reset gallery and start cycle
+  var $gallery = $('.' + section + ' .gallery')
+  updateGallery($gallery, 1)
+
+  clearInterval(galleryCycleInterval)
+  galleryCycleInterval = setInterval(function() {
+    cycleGalleryImage($gallery, true)
+  }, 3000)
 }
 
 function closePortfolio() {
@@ -37,11 +52,13 @@ function closePortfolio() {
   $('#bio').removeClass('hidden')
   $('#portfolio a').removeClass('selected')
   $('#portfolio').removeClass('minimized')
+
+  // stop gallery cycle
+  clearInterval(galleryCycleInterval)
 }
 
 /* Copy email to clipboard */
 $('.copy-email').click(function() {
-  console.log('it worked')
   var $temp = $("<input>")
   $("body").append($temp)
   $temp.val($(this).text()).select()
@@ -57,26 +74,32 @@ $('.copy-email').mouseleave(function() {
 /* Image galleries */
 $('.gallery').append('<nav class="back"></nav>')
 $('.gallery').append('<nav class="next"></nav>')
-$('.gallery img:first-of-type').addClass('selected')
-$('.gallery').attr('data-idx', 1)
+
 $('.gallery .next').click(function() {
-  var $gallery = $(this).parent(),
-      idx = parseInt($gallery.attr('data-idx')) + 1,
-      size = $gallery.find('img').length
-
-  if (idx > size) idx = 1
-
-  updateGallery($gallery, idx)
+  cycleGalleryImage($(this).parent(), true)
 })
 $('.gallery .back').click(function() {
-  var $gallery = $(this).parent(),
-      idx = parseInt($gallery.attr('data-idx')) - 1,
-      size = $gallery.find('img').length
+  cycleGalleryImage($(this).parent(), false)
+})
 
-  if (idx <= 0) idx = size
+function cycleGalleryImage($gallery, forward) {
+  var size = $gallery.find('img').length,
+      idx = parseInt($gallery.attr('data-idx'))
+
+  if (forward) {
+    idx = idx + 1
+  } else {
+    idx - 1
+  }
+
+  if (idx > size) {
+    idx = 1
+  } else if (idx <= 0) {
+    idx = size
+  }
 
   updateGallery($gallery, idx)
-})
+}
 
 function updateGallery($gallery, idx) {
   $gallery.find('img').removeClass('selected')
