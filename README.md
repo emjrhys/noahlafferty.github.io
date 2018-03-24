@@ -1,6 +1,6 @@
 ## My Site & Portfolio
 
-Hi this is my site
+Hi welcome to website
 
 #### TODO
 - ~~image galleries~~
@@ -11,6 +11,7 @@ Hi this is my site
 - ~~back to bio button~~
 - ~~put forest game online~~
 - better colors
+- better fonts
 - spacing/layout adjustments
 - mobile styling
 - favicon
