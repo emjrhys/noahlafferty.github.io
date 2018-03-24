@@ -4,6 +4,7 @@ Hi this is my site
 
 #### TODO
 - ~~image galleries~~
+  - auto-flip through photos
   - captions?
   - zoom?
 - ~~browser history~~

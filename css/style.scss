@@ -11,6 +11,7 @@ $portfolio-colors: (
   'footer': #0F2D40
 );
 
+$bg-color: #fbf7f5;
 $text-color: #222;
 $link-color: #CC4452;
 $link-hover-color: #E6B098;
@@ -77,6 +78,7 @@ body {
   overflow: hidden;
   font-family: 'Noto Sans';
   color: $text-color;
+  background-color: $bg-color;
 }
 
 section {
@@ -165,7 +167,7 @@ section {
     transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
 
     font-size: 1.2em;
-    border-bottom: 6px solid #fff;
+    border-width: 6px;
 
     a {
       padding-right: 30px;
@@ -173,7 +175,7 @@ section {
   }
 
   li {
-    border-bottom: 10px solid #fff;
+    border-bottom: 10px solid $bg-color;
     box-sizing: border-box;
 
     $height: 60px;
