@@ -3,14 +3,17 @@ COLORS
 *********************/
 
 $portfolio-colors: (
-  'non-euclidean': #F19181, //#F9E4AD,
-  'hyperflora': #F9CB8F, //#E6B098,
-  'ibm': #F3F5C4, //#CC4452,
-  'reflections': #93EDD4, //#723147,
-  'hackillinois': #3CBAC8 //#31152B
+  'non-euclidean': #97D7F0, //#F19181,
+  'hyperflora': #5DA5B2, //#F9CB8F,
+  'ibm': #3E8C84, //#F3F5C4,
+  'reflections': #296B73, //#93EDD4,
+  'hackillinois': #194759, //#3CBAC8
+  'footer': #0F2D40
 );
 
-$dark-grey: #222;
+$text-color: #222;
+$link-color: #CC4452;
+$link-hover-color: #E6B098;
 
 /*********************
 VARIABLES
@@ -18,7 +21,7 @@ VARIABLES
 
 $overlay-opacity: .85;
 $hover-opacity: 0.3;
-$bg-opacity: .5;
+$bg-opacity: .4;
 $sin-20: 0.342;
 $cos-20: 0.94;
 
@@ -73,7 +76,7 @@ STYLES
 body {
   overflow: hidden;
   font-family: 'Noto Sans';
-  color: $dark-grey;
+  color: $text-color;
 }
 
 section {
@@ -89,17 +92,30 @@ section {
 
 
   h1, h2 {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     font-size: 1.8em;
   }
 
   h2 {
+    margin-bottom: 10px;
     font-size: 1.5em;
   }
 
   a {
-    margin-right: 3px;
     text-decoration: none;
+    color: $link-color;
+
+    transition: color .08s;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+
+  nav {
+    a {
+      margin-right: 3px;
+    }
   }
 
   p {
@@ -109,13 +125,10 @@ section {
     font-family: 'Noto Serif';
   }
 
-  p:nth-child(3) {
-    max-width: 600px;
-  }
-
   &.hidden {
-    opacity: 0;
     padding-top: 60px;
+    opacity: 0;
+    pointer-events: none;
   }
 
   &.non-euclidean {
@@ -127,25 +140,25 @@ section {
   }
 
   &.ibm {
-    background: get-color('ibm');
+    background: rgba(get-color('ibm'), $bg-opacity);
   }
 
   &.reflections {
-    background: get-color('reflections');
+    background: rgba(get-color('reflections'), $bg-opacity);
   }
 
   &.hackillinois {
-    background: get-color('hackillinois');
+    background: rgba(get-color('hackillinois'), $bg-opacity);
   }
 }
 
-ul {
+#portfolio {
   list-style: none;
   position: absolute;
   bottom: calc(-1 * 100vw * .2);
   width: 100vw;
 
-  &.minimized li header {
+  &.minimized li {
     $height: 50px;
     height: $height;
     width: calc-stripe-width($height);
@@ -158,10 +171,8 @@ ul {
       padding-right: 30px;
     }
   }
-}
 
-li {
-  header {
+  li {
     border-bottom: 10px solid #fff;
     box-sizing: border-box;
 
@@ -209,19 +220,19 @@ li {
     h3 {
       color: #fff;
     }
-  }
 
-  &.footer {
-    $height: 150px;
-    height: $height;
-    width: calc-stripe-width($height);
+    &.footer {
+      $height: 150px;
+      height: $height;
+      width: calc-stripe-width($height);
 
-    transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
-    background-color: #723147;
+      transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+      background-color: get-color('footer');
+    }
   }
 }
 
-li.non-euclidean header {
+li.non-euclidean {
   background: url(../assets/banners/non-euclidean.png) no-repeat center center;
   background-size: cover;
 
@@ -236,7 +247,7 @@ li.non-euclidean header {
   }
 }
 
-li.hyperflora header {
+li.hyperflora {
   background: url(../assets/banners/hyperflora.png) no-repeat center center;
   background-size: cover;
 
@@ -251,7 +262,7 @@ li.hyperflora header {
   }
 }
 
-li.ibm header {
+li.ibm {
   background: url(../assets/banners/ibm.png) no-repeat center center;
   background-size: cover;
 
@@ -266,7 +277,7 @@ li.ibm header {
   }
 }
 
-li.reflections header {
+li.reflections {
   background: url(../assets/banners/reflections.png) no-repeat center center;
   background-size: cover;
 
@@ -281,7 +292,7 @@ li.reflections header {
   }
 }
 
-li.hackillinois header {
+li.hackillinois {
   background: url(../assets/banners/hackillinois.png) no-repeat center center;
   background-size: cover;
 
@@ -296,18 +307,93 @@ li.hackillinois header {
   }
 }
 
+.video-wrapper-wrapper {
+  max-width: 700px;
 
+  .video-wrapper {
+  	position: relative;
+  	padding-bottom: 56.25%; /* 16:9 */
+  	padding-top: 25px;
+  	height: 0;
+
+    iframe {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	width: 100%;
+    	height: 100%;
+    }
+  }
+}
+
+.gallery {
+  position: relative;
+  max-width: 800px;
+
+  img {
+    width: 100%;
+    display: none;
+
+    &.selected {
+      display: block;
+    }
+  }
+
+  .next, .back {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+
+    opacity: 0;
+
+    transition: opacity .1s;
+    cursor: pointer;
+    z-index: 100;
+
+    &:hover {
+      opacity: .9 !important;
+    }
+  }
+
+  .back {
+    left: 0;
+
+    background: url(../assets/icons/back.svg) no-repeat left center;
+    background-size: 20% auto;
+  }
+
+  .next {
+    right: 0;
+
+    background: url(../assets/icons/next.svg) no-repeat right center;
+    background-size: 20% auto;
+  }
+
+  &:hover {
+    .back, .next {
+      opacity: .4;
+    }
+  }
+}
 
 /*********************
 MISC
 *********************/
 
-/* Email tooltip from https://jsfiddle.net/i_like_robots/qrXyE/ */
+/* Email tooltip modified from https://jsfiddle.net/i_like_robots/qrXyE/ */
 .field-tip {
-    position:relative;
-    cursor: context-menu;
-}
-.field-tip .tip-content {
+  position: relative;
+  display: inline-block;
+
+  margin: 12px 0 4px;
+
+  color: $link-color;
+
+  transition: color .08s;
+  cursor: context-menu;
+
+  .tip-content {
     position:absolute;
     top:-6px; /* - top padding */
     right:9999px;
@@ -327,20 +413,26 @@ MISC
         -ms-transition:opacity 250ms ease-out;
          -o-transition:opacity 250ms ease-out;
             transition:opacity 250ms ease-out;
-}
-/* <http://css-tricks.com/snippets/css/css-triangle/> */
-.field-tip .tip-content:before {
-    content:' '; /* Must have content to display */
-    position:absolute;
-    top:50%;
-    left:-16px; /* 2 x border width */
-    width:0;
-    height:0;
-    margin-top:-8px; /* - border width */
-    border:8px solid transparent;
-    border-right-color:#333;
-}
-.field-tip:hover .tip-content {
-    right:-20px;
-    opacity:1;
+
+    &:before {
+      content:' '; /* Must have content to display */
+      position:absolute;
+      top:50%;
+      left:-16px; /* 2 x border width */
+      width:0;
+      height:0;
+      margin-top:-8px; /* - border width */
+      border:8px solid transparent;
+      border-right-color:#333;
+    }
+  }
+
+  &:hover {
+    color: $link-hover-color;
+
+    .tip-content {
+      right:-20px;
+      opacity:1;
+    }
+  }
 }
