@@ -84,13 +84,15 @@ body {
 
 section {
   padding: 30px 40px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
   opacity: 1;
+  -webkit-transition: opacity .4s, padding-top .4s;
   transition: opacity .4s, padding-top .4s;
 
 
@@ -107,6 +109,8 @@ section {
   a {
     text-decoration: none;
     color: $link-color;
+
+    -webkit-transition: color .08s;
 
     transition: color .08s;
 
@@ -165,7 +169,8 @@ section {
     $height: 50px;
     height: $height;
     width: calc-stripe-width($height);
-    transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+    -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+            transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
 
     font-size: 1.2em;
     border-width: 6px;
@@ -185,22 +190,29 @@ section {
 
   li {
     border-bottom: 10px solid $bg-color;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 
     $height: 60px;
     height: $height;
     width: calc-stripe-width($height);
-    transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+    -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+            transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
 
     font-size: 1.4em;
-    transition-duration: .4s;
+    -webkit-transition-duration: .4s;
+            transition-duration: .4s;
+    -webkit-transition-property: height, font-size, border-bottom, width, -webkit-transform;
+    transition-property: height, font-size, border-bottom, width, -webkit-transform;
     transition-property: height, font-size, border-bottom, transform, width;
+    transition-property: height, font-size, border-bottom, transform, width, -webkit-transform;
 
     @include breakpoint(medium) {
       $height: 70px;
       height: $height;
       width: calc-stripe-width($height);
-      transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+      -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+              transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
       font-size: 1.6em;
     }
 
@@ -208,15 +220,23 @@ section {
       $height: 80px;
       height: $height;
       width: calc-stripe-width($height);
-      transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+      -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+              transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
       font-size: 1.8em;
     }
 
     a {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      box-sizing: border-box;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
 
       width: 100%;
       height: 100%;
@@ -224,6 +244,8 @@ section {
 
       text-decoration: none;
       color: #fff;
+
+      -webkit-transition: background .3s, padding-right .4s;
 
       transition: background .3s, padding-right .4s;
     }
@@ -237,20 +259,26 @@ section {
       height: $height;
       width: calc-stripe-width($height);
 
-      transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+      -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+
+              transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
       background-color: get-color('footer');
       cursor: default;
     }
   }
 
   .portfolio-close {
-    align-items: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     padding-top: 20px;
     padding-right: 40px !important;
 
     opacity: 0;
     color: $dark-text-color;
     text-transform: lowercase;
+
+    -webkit-transition: opacity .4s, color .2s;
 
     transition: opacity .4s, color .2s;
 
@@ -372,6 +400,8 @@ li.hackillinois {
     width: 100%;
     opacity: 0;
 
+    -webkit-transition: opacity .5s;
+
     transition: opacity .5s;
 
     &.selected {
@@ -386,6 +416,8 @@ li.hackillinois {
     width: 50%;
 
     opacity: 0;
+
+    -webkit-transition: opacity .1s;
 
     transition: opacity .1s;
     cursor: pointer;
@@ -430,6 +462,8 @@ MISC
 
   color: $link-color;
 
+  -webkit-transition: color .08s;
+
   transition: color .08s;
   cursor: context-menu;
 
@@ -445,13 +479,9 @@ MISC
     background:#333;
     border-radius: 4px;
     -webkit-box-shadow:2px 2px 5px #aaa;
-       -moz-box-shadow:2px 2px 5px #aaa;
             box-shadow:2px 2px 5px #aaa;
     opacity:0;
     -webkit-transition:opacity 250ms ease-out;
-       -moz-transition:opacity 250ms ease-out;
-        -ms-transition:opacity 250ms ease-out;
-         -o-transition:opacity 250ms ease-out;
             transition:opacity 250ms ease-out;
 
     &:before {
