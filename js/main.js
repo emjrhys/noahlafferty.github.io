@@ -1,3 +1,8 @@
+/* Global vars */
+var galleryCycleInterval,
+    $projects = $('section'),
+    $portfolioNav = $('#portfolio')
+
 /* Manage browser history */
 $(window).hashchange(function() {
   var hash = window.location.hash.substring(1);
@@ -26,32 +31,28 @@ $('.portfolio-close').click(function() {
   window.location.hash = ''
 })
 
-var galleryCycleInterval
-
 function openPortfolioSection(section) {
-  $('a').removeClass('selected')
-  $('section').addClass('hidden')
+  var $projectSection = $projects.filter('.' + section)
 
-  $('li.' + section + ' a').addClass('selected')
-  $('.' + section).removeClass('hidden')
+  $portfolioNav.find('a').removeClass('selected')
+  $projects.addClass('hidden')
 
-  $('#portfolio').addClass('minimized')
+  $portfolioNav.find('li.' + section + ' a').addClass('selected')
+  $projectSection.removeClass('hidden')
+
+  $portfolioNav.addClass('minimized')
 
   // reset gallery and start cycle
-  var $gallery = $('.' + section + ' .gallery')
+  var $gallery = $projectSection.find('.gallery')
   updateGallery($gallery, 1)
-
-  clearInterval(galleryCycleInterval)
-  galleryCycleInterval = setInterval(function() {
-    cycleGalleryImage($gallery, true)
-  }, 3000)
+  resetGalleryTimer($gallery)
 }
 
 function closePortfolio() {
-  $('section').addClass('hidden')
+  $projects.addClass('hidden')
   $('#bio').removeClass('hidden')
-  $('#portfolio a').removeClass('selected')
-  $('#portfolio').removeClass('minimized')
+  $portfolioNav.find('a').removeClass('selected')
+  $portfolioNav.removeClass('minimized')
 
   // stop gallery cycle
   clearInterval(galleryCycleInterval)
@@ -72,13 +73,14 @@ $('.copy-email').mouseleave(function() {
 })
 
 /* Image galleries */
-$('.gallery').append('<nav class="back"></nav>')
-$('.gallery').append('<nav class="next"></nav>')
+var $galleries = $('.gallery')
+$galleries.append('<nav class="back"></nav>')
+$galleries.append('<nav class="next"></nav>')
 
-$('.gallery .next').click(function() {
+$galleries.find('.next').click(function() {
   cycleGalleryImage($(this).parent(), true)
 })
-$('.gallery .back').click(function() {
+$galleries.find('.back').click(function() {
   cycleGalleryImage($(this).parent(), false)
 })
 
@@ -99,12 +101,20 @@ function cycleGalleryImage($gallery, forward) {
   }
 
   updateGallery($gallery, idx)
+  resetGalleryTimer($gallery)
 }
 
 function updateGallery($gallery, idx) {
   $gallery.find('img').removeClass('selected')
   $gallery.find('img:nth-of-type(' + idx + ')').addClass('selected')
   $gallery.attr('data-idx', idx)
+}
+
+function resetGalleryTimer($gallery) {
+  clearInterval(galleryCycleInterval)
+  galleryCycleInterval = setInterval(function() {
+    cycleGalleryImage($gallery, true)
+  }, 3000)
 }
 
 /* start with certain page open */
