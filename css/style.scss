@@ -85,7 +85,7 @@ body {
 section {
   position: absolute;
   overflow-y: scroll;
-  padding: 30px 40px 200px;
+  padding: 30px 40px 40vh;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100vw;
@@ -163,8 +163,16 @@ section {
 #portfolio {
   list-style: none;
   position: absolute;
-  bottom: calc(-1 * 100vw * .2);
+  bottom: calc(-1 * 100vw * .3 + 30px);
   width: 100vw;
+
+  @include breakpoint(medium) {
+    bottom: calc(-1 * 100vw * .25 + 20px);
+  }
+
+  @include breakpoint(large) {
+    bottom: calc(-1 * 100vw * .2);
+  }
 
   &.minimized li {
     $height: 50px;
