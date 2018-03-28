@@ -83,18 +83,19 @@ body {
 }
 
 section {
-  padding: 30px 40px;
+  position: absolute;
+  overflow-y: scroll;
+  padding: 30px 40px 200px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100vw;
   height: 100vh;
-  position: absolute;
   top: 0;
   left: 0;
+
   opacity: 1;
   -webkit-transition: opacity .4s, padding-top .4s;
   transition: opacity .4s, padding-top .4s;
-
 
   h1, h2 {
     margin-bottom: 16px;
@@ -421,7 +422,6 @@ li.hackillinois {
 
     transition: opacity .1s;
     cursor: pointer;
-    z-index: 100;
 
     &:hover {
       opacity: .9 !important;
