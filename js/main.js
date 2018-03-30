@@ -17,7 +17,7 @@ $(window).hashchange(function() {
 $(window).hashchange()
 
 /* Portfolio navigation */
-$('a.portfolio-nav').click(function (event) {
+$('.portfolio-nav').click(function (event) {
   event.preventDefault()
 
   if ($(this).hasClass('selected')) {
@@ -34,10 +34,10 @@ $('.portfolio-close').click(function() {
 function openPortfolioSection(section) {
   var $projectSection = $projects.filter('.' + section)
 
-  $portfolioNav.find('a').removeClass('selected')
+  $portfolioNav.find('li').removeClass('selected')
   $projects.addClass('hidden')
 
-  $portfolioNav.find('li.' + section + ' a').addClass('selected')
+  $portfolioNav.find('li.' + section).addClass('selected')
   $projectSection.removeClass('hidden')
 
   $portfolioNav.addClass('minimized')
@@ -51,7 +51,7 @@ function openPortfolioSection(section) {
 function closePortfolio() {
   $projects.addClass('hidden')
   $('#bio').removeClass('hidden')
-  $portfolioNav.find('a').removeClass('selected')
+  $portfolioNav.find('li').removeClass('selected')
   $portfolioNav.removeClass('minimized')
 
   // stop gallery cycle

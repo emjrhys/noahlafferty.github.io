@@ -26,6 +26,7 @@ $hover-opacity: 0.3;
 $bg-opacity: .4;
 $sin-20: 0.342;
 $cos-20: 0.94;
+$nav-offset: -74px;
 
 /*********************
 MIXINS & FUNCTIONS
@@ -161,80 +162,59 @@ section {
 }
 
 #portfolio {
-  list-style: none;
   position: absolute;
-  bottom: calc(-1 * 100vw * .3 + 30px);
+  bottom: -2vw;
   width: 100vw;
 
-  @include breakpoint(medium) {
-    bottom: calc(-1 * 100vw * .25 + 20px);
+  ul {
+    list-style: none;
+    position: relative;
   }
 
-  @include breakpoint(large) {
-    bottom: calc(-1 * 100vw * .2);
-  }
+  &.minimized {
+    &:not(:hover) {
+      li.portfolio-nav {
+        top: 0;
 
-  &.minimized li {
-    $height: 50px;
-    height: $height;
-    width: calc-stripe-width($height);
-    -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
-            transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
-
-    font-size: 1.2em;
-    border-width: 6px;
-
-    a {
-      padding-right: 30px;
+        &.selected {
+          top: $nav-offset;
+        }
+      }
     }
 
     .portfolio-close {
-      opacity: 1;
-    }
-
-    &.footer {
       cursor: pointer;
+
+      span {
+       opacity: 1;
+     }
     }
   }
 
   li {
-    border-bottom: 10px solid $bg-color;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
 
-    $height: 60px;
+    position: absolute;
+    $height: 70px;
     height: $height;
     width: calc-stripe-width($height);
     -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
             transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
 
-    font-size: 1.4em;
-    -webkit-transition-duration: .4s;
-            transition-duration: .4s;
-    -webkit-transition-property: height, font-size, border-bottom, width, -webkit-transform;
-    transition-property: height, font-size, border-bottom, width, -webkit-transform;
-    transition-property: height, font-size, border-bottom, transform, width;
-    transition-property: height, font-size, border-bottom, transform, width, -webkit-transform;
+    font-size: 1.6em;
+    -webkit-transition: top .3s ease-out;
+    transition: top .3s ease-out;
+    cursor: pointer;
 
-    @include breakpoint(medium) {
-      $height: 70px;
-      height: $height;
-      width: calc-stripe-width($height);
-      -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
-              transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
-      font-size: 1.6em;
+    $elements: 6;
+    @for $i from 1 to ($elements + 1) {
+      &:nth-child(#{$i}) {
+         top: calc((#{$elements} - #{$i}) * #{$nav-offset});
+      }
     }
 
-    @include breakpoint(large) {
-      $height: 80px;
-      height: $height;
-      width: calc-stripe-width($height);
-      -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
-              transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
-      font-size: 1.8em;
-    }
-
-    a {
+    h3 {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -259,40 +239,47 @@ section {
       transition: background .3s, padding-right .4s;
     }
 
-    .portfolio-nav {
-      cursor: pointer;
-    }
+    &.portfolio-close {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: flex-start;
+          -ms-flex-align: flex-start;
+              align-items: flex-start;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
 
-    &.footer {
+      padding-top: 20px;
+      padding-right: 40px !important;
       $height: 150px;
       height: $height;
       width: calc-stripe-width($height);
 
       -webkit-transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
-
               transform: translate(calc-stripe-offset($height), 0) rotate(-20deg);
+
+      color: $dark-text-color;
       background-color: get-color('footer');
+      text-transform: lowercase;
+
+      -webkit-transition: opacity .4s, color .2s;
+      -webkit-transition: color .2s;
+      transition: color .2s;
+
       cursor: default;
-    }
-  }
 
-  .portfolio-close {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    padding-top: 20px;
-    padding-right: 40px !important;
+      &:hover {
+        color: $bg-color;
+      }
 
-    opacity: 0;
-    color: $dark-text-color;
-    text-transform: lowercase;
-
-    -webkit-transition: opacity .4s, color .2s;
-
-    transition: opacity .4s, color .2s;
-
-    &:hover {
-      color: $bg-color;
+      span {
+        opacity: 0;
+        -webkit-transition: opacity .4s;
+        transition: opacity .4s;
+      }
     }
   }
 }
@@ -303,10 +290,12 @@ li.non-euclidean {
 
   $overlay-color: get-color('non-euclidean');
 
-  a {
+  h3 {
     background: rgba($overlay-color, $overlay-opacity);
+  }
 
-    &:hover, &.selected {
+  &:hover, &.selected {
+    h3 {
       background: rgba($overlay-color, $hover-opacity);
     }
   }
@@ -318,10 +307,12 @@ li.hyperflora {
 
   $overlay-color: get-color('hyperflora');
 
-  a {
+  h3 {
     background: rgba($overlay-color, $overlay-opacity);
+  }
 
-    &:hover, &.selected {
+  &:hover, &.selected {
+    h3 {
       background: rgba($overlay-color, $hover-opacity);
     }
   }
@@ -333,10 +324,12 @@ li.ibm {
 
   $overlay-color: get-color('ibm');
 
-  a {
+  h3 {
     background: rgba($overlay-color, $overlay-opacity);
+  }
 
-    &:hover, &.selected {
+  &:hover, &.selected {
+    h3 {
       background: rgba($overlay-color, $hover-opacity);
     }
   }
@@ -348,10 +341,12 @@ li.reflections {
 
   $overlay-color: get-color('reflections');
 
-  a {
+  h3 {
     background: rgba($overlay-color, $overlay-opacity);
+  }
 
-    &:hover, &.selected {
+  &:hover, &.selected {
+    h3 {
       background: rgba($overlay-color, $hover-opacity);
     }
   }
@@ -363,10 +358,12 @@ li.hackillinois {
 
   $overlay-color: get-color('hackillinois');
 
-  a {
+  h3 {
     background: rgba($overlay-color, $overlay-opacity);
+  }
 
-    &:hover, &.selected {
+  &:hover, &.selected {
+    h3 {
       background: rgba($overlay-color, $hover-opacity);
     }
   }
