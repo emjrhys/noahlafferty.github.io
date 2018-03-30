@@ -21,9 +21,11 @@ $link-hover-color: #E6B098;
 VARIABLES
 *********************/
 
-$overlay-opacity: .85;
-$hover-opacity: 0.3;
-$bg-opacity: .4;
+$nav-overlay-opacity: .85;
+$nav-hover-opacity: 0.3;
+$nav-selected-opacity: 0;
+$project-bg-opacity: .4;
+
 $sin-20: 0.342;
 $cos-20: 0.94;
 $nav-offset: -74px;
@@ -31,6 +33,33 @@ $nav-offset: -74px;
 /*********************
 MIXINS & FUNCTIONS
 *********************/
+
+@mixin project-bg-color($name) {
+  background: rgba(get-color('#{$name}'), $project-bg-opacity);
+}
+
+@mixin portfolio-nav-stripe($name) {
+  background: url(../assets/banners/#{$name}.png) no-repeat center center;
+  background-size: cover;
+
+  $overlay-color: get-color('#{$name}');
+
+  h3 {
+    background: rgba($overlay-color, $nav-overlay-opacity);
+  }
+
+  &:hover {
+    h3 {
+      background: rgba($overlay-color, $nav-hover-opacity);
+    }
+  }
+
+  &.selected {
+    h3 {
+      background: rgba($overlay-color, $nav-selected-opacity);
+    }
+  }
+}
 
 @mixin breakpoint($point) {
    @if $point == xlarge {
@@ -138,23 +167,24 @@ section {
   }
 
   &.non-euclidean {
-    background: rgba(get-color('non-euclidean'), $bg-opacity);
+    @include project-bg-color('non-euclidean')
+
   }
 
   &.hyperflora {
-    background: rgba(get-color('hyperflora'), $bg-opacity);
+    @include project-bg-color('non-euclidean')
   }
 
   &.ibm {
-    background: rgba(get-color('ibm'), $bg-opacity);
+    @include project-bg-color('ibm')
   }
 
   &.reflections {
-    background: rgba(get-color('reflections'), $bg-opacity);
+    @include project-bg-color('reflections')
   }
 
   &.hackillinois {
-    background: rgba(get-color('hackillinois'), $bg-opacity);
+    @include project-bg-color('hackillinois')
   }
 }
 
@@ -189,9 +219,6 @@ section {
   }
 
   li {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-
     position: absolute;
     $height: 70px;
     height: $height;
@@ -282,88 +309,23 @@ section {
 }
 
 li.non-euclidean {
-  background: url(../assets/banners/non-euclidean.png) no-repeat center center;
-  background-size: cover;
-
-  $overlay-color: get-color('non-euclidean');
-
-  h3 {
-    background: rgba($overlay-color, $overlay-opacity);
-  }
-
-  &:hover, &.selected {
-    h3 {
-      background: rgba($overlay-color, $hover-opacity);
-    }
-  }
+  @include portfolio-nav-stripe('non-euclidean')
 }
 
 li.hyperflora {
-  background: url(../assets/banners/hyperflora.png) no-repeat center center;
-  background-size: cover;
-
-  $overlay-color: get-color('hyperflora');
-
-  h3 {
-    background: rgba($overlay-color, $overlay-opacity);
-  }
-
-  &:hover, &.selected {
-    h3 {
-      background: rgba($overlay-color, $hover-opacity);
-    }
-  }
+  @include portfolio-nav-stripe('hyperflora')
 }
 
 li.ibm {
-  background: url(../assets/banners/ibm.png) no-repeat center center;
-  background-size: cover;
-
-  $overlay-color: get-color('ibm');
-
-  h3 {
-    background: rgba($overlay-color, $overlay-opacity);
-  }
-
-  &:hover, &.selected {
-    h3 {
-      background: rgba($overlay-color, $hover-opacity);
-    }
-  }
+  @include portfolio-nav-stripe('ibm')
 }
 
 li.reflections {
-  background: url(../assets/banners/reflections.png) no-repeat center center;
-  background-size: cover;
-
-  $overlay-color: get-color('reflections');
-
-  h3 {
-    background: rgba($overlay-color, $overlay-opacity);
-  }
-
-  &:hover, &.selected {
-    h3 {
-      background: rgba($overlay-color, $hover-opacity);
-    }
-  }
+  @include portfolio-nav-stripe('reflections')
 }
 
 li.hackillinois {
-  background: url(../assets/banners/hackillinois.png) no-repeat center center;
-  background-size: cover;
-
-  $overlay-color: get-color('hackillinois');
-
-  h3 {
-    background: rgba($overlay-color, $overlay-opacity);
-  }
-
-  &:hover, &.selected {
-    h3 {
-      background: rgba($overlay-color, $hover-opacity);
-    }
-  }
+  @include portfolio-nav-stripe('hackillinois')
 }
 
 .video-wrapper-wrapper {
