@@ -61,9 +61,6 @@ MIXINS & FUNCTIONS
 }
 
 @function calc-stripe-offset($stripe-height) {
-  // $left-side: calc(calc-stripe-width($stripe-height) / 2 * (1 - #{$cos-20}));
-  // $right-side: calc(#{$stripe-height} / 2 * #{$sin-20});
-  // @return calc(-1 * (#{$left-side} + #{$right-side}));
   @return calc(-1 * (((100vw + 27.4px) * .0319) + #{$stripe-height} / 2 * #{$sin-20}));
 }
 

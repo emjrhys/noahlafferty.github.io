@@ -18,13 +18,7 @@ $(window).hashchange()
 
 /* Portfolio navigation */
 $('.portfolio-nav').click(function (event) {
-  event.preventDefault()
-
-  if ($(this).hasClass('selected')) {
-    window.location.hash = ''
-  } else {
-    window.location.hash = $(this).attr('data-section')
-  }
+  window.location.hash = $(this).attr('data-section')
 })
 
 $('.portfolio-close').click(function() {
