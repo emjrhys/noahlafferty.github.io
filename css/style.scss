@@ -28,6 +28,7 @@ $project-bg-opacity: .4;
 
 $sin-20: 0.342;
 $cos-20: 0.94;
+$tan-20: 0.364;
 $nav-offset: -74px;
 
 /*********************
@@ -91,6 +92,10 @@ MIXINS & FUNCTIONS
 
 @function calc-stripe-offset($stripe-height) {
   @return calc(-1 * (((100vw + 27.4px) * .0319) + #{$stripe-height} / 2 * #{$sin-20}));
+}
+
+@function calc-nav-vertical() {
+  @return calc(-1 * 50vw * #{$tan-20} + 150px);
 }
 
 /*********************
@@ -190,7 +195,7 @@ section {
 
 #portfolio {
   position: absolute;
-  bottom: -2vw;
+  bottom: calc-nav-vertical();
   width: 100vw;
 
   ul {
@@ -199,7 +204,7 @@ section {
   }
 
   &.minimized {
-    &:not(:hover) {
+    &.disabled, &:not(:hover) {
       li.portfolio-nav {
         top: 0;
 

@@ -32,6 +32,11 @@ function openPortfolioSection(section) {
   $projects.addClass('hidden')
 
   $portfolioNav.find('li.' + section).addClass('selected')
+  $portfolioNav.addClass('disabled')
+  setTimeout(function() {
+    $portfolioNav.removeClass('disabled')
+  }, 400)
+
   $projectSection.removeClass('hidden')
 
   $portfolioNav.addClass('minimized')
