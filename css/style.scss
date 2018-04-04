@@ -35,6 +35,34 @@ $nav-offset: -74px;
 MIXINS & FUNCTIONS
 *********************/
 
+@mixin breakpoint($point) {
+   @if $point == xlarge {
+     @media (min-width: 70em) { @content ; }
+  }
+   @else if $point == large {
+     @media (min-width: 64em) { @content ; }
+  }
+    @else if $point == medium {
+     @media (min-width: 50em) { @content ; }
+  }
+   @else if $point == small {
+     @media (min-width: 37.5em)  { @content ; }
+  }
+  @else if $point == xsmall {
+     @media (max-width: 37.5em)  { @content ; }
+
+  }
+}
+
+@mixin portfolio-nav-offset() {
+  $elements: 6;
+  @for $i from 1 to ($elements + 1) {
+    &:nth-child(#{$i}) {
+       top: calc((#{$elements} - #{$i}) * #{$nav-offset});
+    }
+  }
+}
+
 @mixin project-bg-color($name) {
   background: rgba(get-color('#{$name}'), $project-bg-opacity);
 }
@@ -59,25 +87,6 @@ MIXINS & FUNCTIONS
     h3 {
       background: rgba($overlay-color, $nav-selected-opacity);
     }
-  }
-}
-
-@mixin breakpoint($point) {
-   @if $point == xlarge {
-     @media (min-width: 70em) { @content ; }
-  }
-   @else if $point == large {
-     @media (min-width: 64em) { @content ; }
-  }
-    @else if $point == medium {
-     @media (min-width: 50em) { @content ; }
-  }
-   @else if $point == small {
-     @media (min-width: 37.5em)  { @content ; }
-  }
-  @else if $point == xsmall {
-     @media (max-width: 37.5em)  { @content ; }
-
   }
 }
 
@@ -208,6 +217,16 @@ section {
     position: relative;
   }
 
+  &:hover {
+    li {
+      @include portfolio-nav-offset();
+    }
+
+    .portfolio-open {
+      top: 0;
+    }
+  }
+
   &.minimized {
     &.disabled, &:not(:hover) {
       li.portfolio-nav {
@@ -217,6 +236,10 @@ section {
           top: $nav-offset;
         }
       }
+    }
+
+    .portfolio-open {
+      top: 0;
     }
 
     .portfolio-close {
@@ -241,11 +264,10 @@ section {
     transition: top .3s ease-out;
     cursor: pointer;
 
-    $elements: 6;
-    @for $i from 1 to ($elements + 1) {
-      &:nth-child(#{$i}) {
-         top: calc((#{$elements} - #{$i}) * #{$nav-offset});
-      }
+    top: 0;
+
+    @include breakpoint('small') {
+      @include portfolio-nav-offset();
     }
 
     h3 {
@@ -271,6 +293,18 @@ section {
       -webkit-transition: background .3s, padding-right .4s;
 
       transition: background .3s, padding-right .4s;
+    }
+
+    &.portfolio-open {
+      display: block;
+      top: $nav-offset;
+
+      background-color: get-color('reflections');
+
+      @include breakpoint('small') {
+        display: none;
+        top: 0;
+      }
     }
 
     &.portfolio-close {
