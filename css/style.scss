@@ -3,12 +3,12 @@ COLORS
 *********************/
 
 $portfolio-colors: (
-  'non-euclidean': #97D7F0, //#F19181,
-  'hyperflora': #5DA5B2, //#F9CB8F,
-  'ibm': #3E8C84, //#F3F5C4,
-  'reflections': #296B73, //#93EDD4,
-  'hackillinois': #194759, //#3CBAC8
-  'footer': #0F2D40
+  'non-euclidean': #EF4339,
+  'hyperflora': #CA293E,
+  'ibm': #820233,
+  'reflections': #530031,
+  'hackillinois': #2D112C,
+  'footer': #25112C
 );
 
 $bg-color: #fbf7f5;
@@ -24,7 +24,7 @@ VARIABLES
 $nav-overlay-opacity: .85;
 $nav-hover-opacity: 0.3;
 $nav-selected-opacity: 0;
-$project-bg-opacity: .4;
+$project-bg-opacity: .2;
 
 $sin-20: 0.342;
 $cos-20: 0.94;
@@ -109,9 +109,15 @@ STYLES
 
 body {
   overflow: hidden;
-  font-family: 'Noto Sans';
   color: $text-color;
   background-color: $bg-color;
+
+  font-family: 'PT Sans';
+
+  h1, h2, h3 {
+    font-family: 'Fjalla One';
+    // letter-spacing: .5px;
+  }
 }
 
 section {
@@ -124,6 +130,8 @@ section {
   height: 100vh;
   top: 0;
   left: 0;
+
+  font-size: 1.1em;
 
   opacity: 1;
   -webkit-transition: opacity .4s, padding-top .4s;
@@ -152,17 +160,15 @@ section {
     }
   }
 
+  p {
+    max-width: 800px;
+    margin-bottom: 12px;
+  }
+
   nav {
     a {
       margin-right: 3px;
     }
-  }
-
-  p {
-    max-width: 800px;
-    margin-bottom: 12px;
-
-    font-family: 'Noto Serif';
   }
 
   &.hidden {
@@ -173,7 +179,6 @@ section {
 
   &.non-euclidean {
     @include project-bg-color('non-euclidean')
-
   }
 
   &.hyperflora {
