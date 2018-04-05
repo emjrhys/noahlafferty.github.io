@@ -5,7 +5,7 @@ var galleryCycleInterval,
 
 /* Manage browser history */
 $(window).hashchange(function() {
-  var hash = window.location.hash.substring(1);
+  var hash = window.location.hash.substring(1)
 
   if (hash != '') {
     openPortfolioSection(hash)
