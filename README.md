@@ -11,8 +11,14 @@ Hi welcome to website
 - ~~back to bio button~~
 - ~~put forest game online~~
 - better colors
-- better fonts
-- spacing/layout adjustments
+- make my portfolio banner better
+- better banner images
+  - hyperflora
+  - ibm design
+  - hackillinois (unreadable)
+- mention gallery project in ibm design copy and link to page
+- ~~better fonts~~
+- ~~spacing/layout adjustments~~
 - mobile styling
 - favicon
 - ascii art
