@@ -11,7 +11,7 @@ $portfolio-colors: (
   'footer': #25112C
 );
 
-$bg-color: #fbf9f9;
+$bg-color: #fdfbfb;
 $text-color: #222;
 $dark-text-color: #702c6d;
 $link-color: #CC4452;
@@ -24,7 +24,7 @@ VARIABLES
 $nav-overlay-opacity: .85;
 $nav-hover-opacity: 0.3;
 $nav-selected-opacity: 0;
-$project-bg-opacity: .2;
+$project-bg-opacity: .05;
 
 $sin-20: 0.342;
 $cos-20: 0.94;
@@ -124,7 +124,7 @@ body {
   font-family: 'PT Sans';
 
   h1, h2, h3 {
-    font-family: 'Fjalla One';
+    font-family: 'Source Sans Pro';
     // letter-spacing: .5px;
   }
 }
@@ -177,6 +177,11 @@ section {
   nav {
     a {
       margin-right: 3px;
+    }
+
+    .dot {
+      display: none;
+      opacity: .75;
     }
   }
 
